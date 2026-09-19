@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HomeWorth | Rental price estimator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20260919') }}">
+</head>
+<body>
+  <main class="shell" data-api-base-url="{{ request.host_url.rstrip('/') }}">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="HomeWorth home">
+        <span class="brand-mark">H</span>
+        <span>homeworth</span>
+      </a>
+      <div class="status"><span class="status-dot"></span> model online</div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">Rental intelligence / 01</p>
+      <h1>Find the right<br><em>number</em> for your home.</h1>
+      <p class="lede">Shape a property profile and get a data-backed monthly rent estimate in seconds.</p>
+    </section>
+
+    <section class="workspace">
+      <form id="prediction-form" class="form-panel">
+        <div class="panel-heading">
+          <div><span class="step">01</span><h2>Property profile</h2></div>
+          <span class="required">all fields required</span>
+        </div>
+
+        <div class="field-grid">
+          <label class="field field-wide"><span>City</span>
+            <select name="City" required>
+              <option value="" selected disabled>Choose a city</option>
+              {% for city in options.get('City', []) %}<option value="{{ city }}">{{ city }}</option>{% endfor %}
+            </select>
+          </label>
+          <label class="field"><span>Size <small>sq ft</small></span><input name="Size" type="number" min="1" step="1" placeholder="1,000" required></label>
+          <label class="field"><span>Bedrooms <small>BHK</small></span><input name="BHK" type="number" min="1" step="1" placeholder="2" required></label>
+          <label class="field"><span>Bathrooms</span><input name="Bathroom" type="number" min="1" step="1" placeholder="2" required></label>
+          <label class="field"><span>Current floor</span><input name="Current Floor" type="number" min="0" step="1" placeholder="3" required></label>
+          <label class="field"><span>Total floors</span><input name="Total Floors" type="number" min="1" step="1" placeholder="8" required></label>
+          <label class="field"><span>Area type</span>
+            <select name="Area Type" required><option value="" selected disabled>Choose area type</option>{% for area in options.get('Area Type', []) %}<option value="{{ area }}">{{ area }}</option>{% endfor %}</select>
+          </label>
+          <label class="field"><span>Furnishing</span>
+            <select name="Furnishing Status" required><option value="" selected disabled>Choose furnishing</option>{% for furnishing in options.get('Furnishing Status', []) %}<option value="{{ furnishing }}">{{ furnishing }}</option>{% endfor %}</select>
+          </label>
+        </div>
+        <button class="predict-button" type="submit"><span>Estimate monthly rent</span><span class="arrow">↗</span></button>
+        <p id="form-error" class="form-error" role="alert"></p>
+      </form>
+
+      <aside class="result-panel" aria-live="polite">
+        <div class="result-top"><span class="step">02</span><span>your estimate</span></div>
+        <div id="result-empty" class="result-empty"><span class="result-icon">⌂</span><p>Your estimate will<br>appear here.</p></div>
+        <div id="result-ready" class="result-ready" hidden>
+          <p class="result-label">Estimated monthly rent</p>
+          <div class="price"><span>₹</span><strong id="price-value">—</strong></div>
+          <p class="result-note">Based on your property profile and the trained rental model.</p>
+          <div class="prediction-details">
+            <p class="details-heading">Prediction details</p>
+            <div class="details-grid">
+              <span><b id="detail-city">—</b>City</span>
+              <span><b id="detail-size">—</b>Size</span>
+              <span><b id="detail-layout">—</b>Layout</span>
+              <span><b id="detail-floor">—</b>Floor</span>
+              <span><b id="detail-area">—</b>Area</span>
+              <span><b id="detail-furnishing">—</b>Furnishing</span>
+            </div>
+          </div>
+          <button id="reset-button" class="reset-button" type="button">Edit details <span>↗</span></button>
+        </div>
+        <div class="result-footer"><span>Random forest model</span><span>8 signals</span></div>
+      </aside>
+    </section>
+    <footer><span>ABZ real estate intelligence</span><span>Private estimate · 2026</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js', v='20260919') }}"></script>
+</body>
+</html>
