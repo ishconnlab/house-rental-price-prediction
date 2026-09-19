@@ -341,9 +341,8 @@ The application includes `vercel.json` and `api/index.py` for deployment as a Ve
 The live endpoints are:
 
 ```text
-https://your-project.vercel.app/
-https://your-project.vercel.app/health
-https://your-project.vercel.app/predict
+https://house-rental-price-prediction-seven.vercel.app/
+https://house-rental-price-prediction-seven.vercel.app/health
 ```
 
 The application can also be deployed to a Flask-compatible service such as Render.
@@ -552,16 +551,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Add batch prediction support
 
 ## 👥 Authors
-- Your Name - Initial work - [GitHub Profile](https://github.com/codewithedison)
+- Your Name - Initial work - [GitHub Profile]https://github.com/ishl250
 
 ## 📞 Support
 For support:
 - Open an issue
-- Contact: your.email@example.com
+- Contact: (https://founder.ishconnect.rw/)
 
 ---
 ⭐ Star this repository if you find it helpful!
 
-[View Demo](your-deployed-api-url) | [Report Bug](issues-url) | [Request Feature](issues-url)
+[View Demo](https://house-rental-price-prediction-seven.vercel.app/) | [Report Bug](https://house-rental-price-prediction-seven.vercel.app/) | [Request Feature](https://house-rental-price-prediction-seven.vercel.app/)
 
 This project was created as part of the ABZ Company's initiative to improve property pricing accuracy in the Rwandan real estate market.
