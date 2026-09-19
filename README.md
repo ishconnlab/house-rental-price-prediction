@@ -112,6 +112,11 @@ By the end of the project, learners can:
 ---
 
 ## Final Project Overview
+<img width="1283" height="669" alt="image" src="https://github.com/user-attachments/assets/52c04901-13f3-4c1d-a4ba-1f4f30392f8a" />
+<img width="1341" height="677" alt="image" src="https://github.com/user-attachments/assets/0457dcb6-ed50-4003-9031-03c302668819" />
+
+
+
 
 ### Problem
 
